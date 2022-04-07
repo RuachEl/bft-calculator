@@ -1,86 +1,54 @@
-import React, {Component} from "react";
-
-let calcFunction = (length, width, thickness) => (length * width * thickness) / 12;
+import React, { Component } from "react";
+import { calcFunction } from './index';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class BoardFormComponent extends Component {
     constructor(props) {
-        // let brdLength = 0;
-        // let brdThickness = 0;
-        // let brdWidth = 0;
-        // let calcBft = 0;
-
         super(props);
         this.state = {
-            FormControls: {
-                brdLength: {
-                    value: ''
-                },
-                brdThickness: {
-                    value: ''
-                },
-                brdWidth: {
-                    value: ''
-                },
-                calcBft: {
-                    value: ''
-                },
-            },
-        
+            brdLength: 0,
+            brdWidth: 0,
+            brdThickness: 0,
+            calcBft: 0
+        };
+    
+        this.handleChange = this.handleChange.bind(this);
+    }
+    
+    handleChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
 
-            changeHandler = event => {
+        this.setState({
+            [name]: value
+        });
+    };
 
-                const name = event.target.name;
-                const value = event.target.value;
-
-                this.setState({
-                    FormControls: {
-                        ...this.state.FormControls,
-                        [name]: {
-                            ...this.state.FormControls[name],
-                            value
-                        }
-                    }
-                });
-            },
-
-            clickHandler() {
-                this.setState({
-                    FormControls: {
-                        ...this.state.FormControls,
-                        calcBft: {
-                            ...this.state.FormControls.calcBft,
-                                calcFunction(state.FormControls.brdLength.value, this.state.FormControls.brdWidth.value, this.state.FormControls.brdThickness.value)
-                        }
-                    }
-        
-                }
-                
+    handleClick() {
+        var calcValue = (this.state.brdLength * this.state.brdWidth * this.state.brdThickness) / 12;
+        this.setState({
+            calcBft: {calcValue}
+        });
     }
 
-    
-    render() {
+    render(){
         return (
             <div>
-                <form>
-                    <label>
+                <Form>
+                    <FormGroup>
+                    <Label>
                         Board Length:
-                        <input type="text" name="brdLength"
-                            value={
-                                this.state.FormControls.brdLength.value
-                            }
-                            onChange={
-                                this.changeHandler
-                            }/>
-                    </label>
-
-                    <label>
+                        <Input type="number" name="brdLength"
+                            value={this.state.brdLength} 
+                            onChange={this.handleChange}
+                        />
+                    </Label>
+                    </FormGroup>
+                    <FormGroup>
+                    <Label>
                         Board Thickness:
-                        <select value={
-                                this.state.FormControls.brdThickness.value
-                            }
-                            onChange={
-                                this.changeHandler
-                        }>
+                        <Input type='select' name="brdThickness" value={this.state.brdThickness} onChange={this.handleChange}>
                             <option value='0.25'>1/4</option>
                             <option value='0.50'>2/4</option>
                             <option value='0.75'>3/4</option>
@@ -89,34 +57,30 @@ class BoardFormComponent extends Component {
                             <option value='1.50'>6/4</option>
                             <option value='1.75'>7/4</option>
                             <option value='2.0'>8/4</option>
-                        </select>
-                    </label>
-
-                    <label>
+                        </Input>
+                    </Label>
+                    </FormGroup>
+                    <FormGroup>
+                    <Label>
                         Board Width:
-                        <input type="text" name="brdWidth"
-                            value={
-                                this.state.FormControls.brdWidth.value
-                            }
-                            onChange={
-                                this.changeHandler
-                            }/>
-                    </label>
-                    <textarea type='text'
-                        value={
-                            this.state.FormControls.calcBFT.value
-                        }
-                        disabled/>
-                </form>
+                        <Input type="number" name="brdWidth"
+                            value= {this.state.brdWidth}
+                            onChange= {this.handleChange}
+                        />
+                    </Label>
+                    </FormGroup>
+                    <FormGroup>
+                        <Button type="buton" onClick={() => this.handleClick}>
+                            Submit
+                        </Button>
+                    </FormGroup>
+                </Form>
                 <div>
-                    <button onClick={() => this.handleClick()}>
-                        Submit
-                    </button>
+                    <div>BFT: {this.state.calcBft} </div>
                 </div>
-                <div> {calcBft.value} </div>
             </div>
-        )
-    }
+        );
+    };
 }
 
 export default BoardFormComponent;
