@@ -3,6 +3,7 @@
   background-color: blanchedalmond;
   display: flex;
   flex-direction: column;
+  background-size: cover;
 }
 
 .App-logo {
@@ -38,4 +39,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.body {
+  height: 100%;
 }
