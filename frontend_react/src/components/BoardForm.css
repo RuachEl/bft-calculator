@@ -1,3 +1,13 @@
-.formItem {
+.app__form-item {
     padding: 1rem;
+    margin-bottom: 0.5rem;
+    width: 60%;
+
+    @media screen and (max width:500px) {
+        width: 100%;
+    }
 }
+
+/* .app__form-label {
+    padding: 3rem;
+} */

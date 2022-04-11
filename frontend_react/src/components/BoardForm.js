@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { calcFunction } from './index';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-// import './BoardForm.css';
+import './BoardForm.css';
 
 class BoardFormComponent extends Component {
     constructor(props) {
@@ -39,9 +39,6 @@ class BoardFormComponent extends Component {
             shrinkBft: shrinkValue
             
         });
-        // this.setState({
-        //     shrinkBft: (this.state.calcBft * this.state.shrinkVal)
-        // });
     }
 
     render(){
@@ -49,36 +46,36 @@ class BoardFormComponent extends Component {
             <div>
                 <Form>
                     <FormGroup>
-                        <Label>
+                        <Label className="app__form-label">
                             Board Length:
-                            <Input className="formItem" type="number" name="brdLength"
+                            <Input className="app__form-item" type="number" name="brdLength"
                                 value={this.state.brdLength} 
                                 onChange={this.handleChange}
                             />
                         </Label>
                     </FormGroup>
                     <FormGroup>
-                        <Label>
+                        <Label className="app__form-label">
                             Layer/Board Width:
-                            <Input className="formItem" type="number" name="brdWidth"
+                            <Input className="app__form-item" type="number" name="brdWidth"
                                 value= {this.state.brdWidth}
                                 onChange= {this.handleChange}
                             />
                         </Label>
                     </FormGroup>
                     <FormGroup>
-                        <Label>
+                        <Label className="app__form-label">
                             Number of Layers:1+
-                            <Input className="formItem" type="number" name="numLayers"
+                            <Input className="app__form-item" type="number" name="numLayers"
                                 value= {this.state.numLayers}
                                 onChange= {this.handleChange}
                             />
                         </Label>
                     </FormGroup>
                     <FormGroup>
-                        <Label>
+                        <Label className="app__form-label">
                             Board Thickness:
-                            <Input className="formItem" type='select' name="brdThickness" value={this.state.brdThickness} onChange={this.handleChange}>
+                            <Input type='select' name="brdThickness" value={this.state.brdThickness} onChange={this.handleChange}>
                                 <option value='0.25'>1/4</option>
                                 <option value='0.50'>2/4</option>
                                 <option value='0.75'>3/4</option>
@@ -87,11 +84,13 @@ class BoardFormComponent extends Component {
                                 <option value='1.50'>6/4</option>
                                 <option value='1.75'>7/4</option>
                                 <option value='2.0'>8/4</option>
+                                <option value='2.5'>10/4</option>
+                                <option value='3.0'>12/4</option>
                             </Input>
                         </Label>
-                        <Label>
+                        <Label className="app__form-label">
                             Board Code:
-                            <Input className="formItem" type='select' name="shrinkVal" value={this.state.shrinkVal} onChange={this.handleChange}>
+                            <Input  type='select' name="shrinkVal" value={this.state.shrinkVal} onChange={this.handleChange}>
                                 <option value='1'>BDF</option>
                                 <option value='1.07'>BFT</option>
                                 <option value='1.03'>BF</option>
@@ -100,14 +99,14 @@ class BoardFormComponent extends Component {
                         </Label>                        
                     </FormGroup>
                     <FormGroup>
-                        <Button className="formItem" type="button" onClick={this.handleClick}>
+                        <Button type="button" onClick={this.handleClick}>
                             Submit
                         </Button>
                     </FormGroup>
                 </Form>
                 <div>
-                    <div className="formItem">BFT: {this.state.calcBft} </div>
-                    <div className="formItem">Total BFT: {this.state.shrinkBft} </div>
+                    <div className="app__form-item">BFT: {this.state.calcBft} </div>
+                    <div className="app__form-item">Incl. Shrinkage: {this.state.shrinkBft} </div>
                 </div>
             </div>
         );
