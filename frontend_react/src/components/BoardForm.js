@@ -45,37 +45,37 @@ class BoardFormComponent extends Component {
         return (
             <div>
                 <Form>
-                    <FormGroup>
-                        <Label className="app__form-label">
+                    <FormGroup  className="app__form-item">
+                        <Label>
                             Board Length:
-                            <Input className="app__form-item" type="number" name="brdLength"
+                            <Input type="number" name="brdLength"
                                 value={this.state.brdLength} 
                                 onChange={this.handleChange}
                             />
                         </Label>
                     </FormGroup>
-                    <FormGroup>
-                        <Label className="app__form-label">
+                    <FormGroup  className="app__form-item">
+                        <Label>
                             Layer/Board Width:
-                            <Input className="app__form-item" type="number" name="brdWidth"
+                            <Input type="number" name="brdWidth"
                                 value= {this.state.brdWidth}
                                 onChange= {this.handleChange}
                             />
                         </Label>
                     </FormGroup>
-                    <FormGroup>
-                        <Label className="app__form-label">
+                    <FormGroup  className="app__form-item">
+                        <Label>
                             Number of Layers:1+
-                            <Input className="app__form-item" type="number" name="numLayers"
+                            <Input type="number" name="numLayers"
                                 value= {this.state.numLayers}
                                 onChange= {this.handleChange}
                             />
                         </Label>
                     </FormGroup>
                     <FormGroup>
-                        <Label className="app__form-label">
+                        <Label>
                             Board Thickness:
-                            <Input type='select' name="brdThickness" value={this.state.brdThickness} onChange={this.handleChange}>
+                            <Input className="app__form-select" type='select' name="brdThickness" value={this.state.brdThickness} onChange={this.handleChange}>
                                 <option value='0.25'>1/4</option>
                                 <option value='0.50'>2/4</option>
                                 <option value='0.75'>3/4</option>
@@ -88,9 +88,9 @@ class BoardFormComponent extends Component {
                                 <option value='3.0'>12/4</option>
                             </Input>
                         </Label>
-                        <Label className="app__form-label">
+                        <Label>
                             Board Code:
-                            <Input  type='select' name="shrinkVal" value={this.state.shrinkVal} onChange={this.handleChange}>
+                            <Input className="app__form-select" type='select' name="shrinkVal" value={this.state.shrinkVal} onChange={this.handleChange}>
                                 <option value='1'>BDF</option>
                                 <option value='1.07'>BFT</option>
                                 <option value='1.03'>BF</option>

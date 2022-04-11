@@ -1,13 +1,20 @@
+.app {
+    display: flex;
+    flex: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .app__form-item {
     padding: 1rem;
     margin-bottom: 0.5rem;
     width: 60%;
-
-    @media screen and (max width:500px) {
-        width: 100%;
-    }
+    border: none;
+    border-radius: 10px;
 }
 
-/* .app__form-label {
-    padding: 3rem;
-} */
+.app__form-select {
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+}
