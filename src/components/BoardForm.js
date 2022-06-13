@@ -51,7 +51,7 @@ class BoardForm extends Component {
                     <Form>
                         <div className="app__form-item">
                             <Label>
-                                Board Length &middot ft:
+                                Board Length-ft:
                                 <Input type="number" name="brdLength"
                                     value={this.state.brdLength} 
                                     onChange={this.handleChange}
@@ -62,7 +62,7 @@ class BoardForm extends Component {
                         </div>
                         <div className="app__form-item">
                             <Label>
-                                Layer/Board Width &middot inches:
+                                Layer/Board Width-inches:
                                 <Input type="number" name="brdWidth"
                                     value= {this.state.brdWidth}
                                     onChange= {this.handleChange}
